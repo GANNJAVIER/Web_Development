@@ -1,0 +1,169 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <title>Dessert Ingredients Recipe</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #fff5f7;
+        }
+
+        .card {
+            height: 100%;
+            border: none;
+        }
+
+        .card-title {
+            color: #d65a85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container py-5">
+
+        <h1 class="text-center mb-2">
+            Dessert Recipe Collection
+        </h1>
+
+        <p class="text-center mb-5">
+            Discover delicious desserts and their ingredients!
+        </p>
+
+        <div class="row g-4" id="parent">
+            <!-- Dessert cards will appear here -->
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        var desserts = [
+            {
+                DName: "Leche Flan",
+                Origin: "Philippines",
+                Description: "A creamy caramel custard dessert.",
+                Ingredients: [
+                    { name: "Egg Yolks", amount: "10 pieces" },
+                    { name: "Condensed Milk", amount: "1 can" },
+                    { name: "Evaporated Milk", amount: "1 can" },
+                    { name: "Sugar", amount: "1 cup" }
+                ]
+            },
+            {
+                DName: "Mango Float",
+                Origin: "Philippines",
+                Description: "A chilled dessert made with mangoes and cream.",
+                Ingredients: [
+                    { name: "Ripe Mangoes", amount: "3 pieces" },
+                    { name: "Graham Crackers", amount: "1 pack" },
+                    { name: "All-Purpose Cream", amount: "2 packs" },
+                    { name: "Condensed Milk", amount: "1 can" }
+                ]
+            },
+            {
+                DName: "Chocolate Cake",
+                Origin: "United States",
+                Description: "A soft and moist chocolate-flavored cake.",
+                Ingredients: [
+                    { name: "Flour", amount: "2 cups" },
+                    { name: "Cocoa Powder", amount: "3/4 cup" },
+                    { name: "Sugar", amount: "2 cups" },
+                    { name: "Eggs", amount: "2 pieces" },
+                    { name: "Milk", amount: "1 cup" }
+                ]
+            },
+            {
+                DName: "Tiramisu",
+                Origin: "Italy",
+                Description: "A layered coffee-flavored Italian dessert.",
+                Ingredients: [
+                    { name: "Ladyfingers", amount: "200 grams" },
+                    { name: "Mascarpone", amount: "250 grams" },
+                    { name: "Coffee", amount: "1 cup" },
+                    { name: "Cocoa Powder", amount: "2 tbsp" }
+                ]
+            },
+            {
+                DName: "Buko Pandan",
+                Origin: "Philippines",
+                Description: "A creamy coconut and pandan dessert.",
+                Ingredients: [
+                    { name: "Young Coconut", amount: "2 cups" },
+                    { name: "Pandan Jelly", amount: "2 cups" },
+                    { name: "All-Purpose Cream", amount: "1 pack" },
+                    { name: "Condensed Milk", amount: "1 can" }
+                ]
+            },
+            {
+                DName: "Brownies",
+                Origin: "United States",
+                Description: "Rich and fudgy chocolate squares.",
+                Ingredients: [
+                    { name: "Dark Chocolate", amount: "200 grams" },
+                    { name: "Butter", amount: "1/2 cup" },
+                    { name: "Sugar", amount: "1 cup" },
+                    { name: "Eggs", amount: "2 pieces" },
+                    { name: "Flour", amount: "3/4 cup" }
+                ]
+            }
+        ];
+
+        var elParent = document.getElementById("parent");
+
+        for (var i = 0; i < desserts.length; i++) {
+
+            var ingredientList = "";
+
+            for (var j = 0; j < desserts[i].Ingredients.length; j++) {
+
+                ingredientList +=
+                    "<li>" +
+                    desserts[i].Ingredients[j].name +
+                    " - " +
+                    desserts[i].Ingredients[j].amount +
+                    "</li>";
+            }
+
+            elParent.innerHTML += `
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card p-4 shadow rounded-4">
+
+                        <h3 class="card-title">
+                            ${desserts[i].DName}
+                        </h3>
+
+                        <p class="text-muted">
+                            Origin: ${desserts[i].Origin}
+                        </p>
+
+                        <p>
+                            ${desserts[i].Description}
+                        </p>
+
+                        <h5>Ingredients:</h5>
+
+                        <ul>
+                            ${ingredientList}
+                        </ul>
+
+                    </div>
+                </div>
+            `;
+        }
+
+    </script>
+
+</body>
+</html>
