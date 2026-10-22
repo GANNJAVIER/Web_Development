@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" data-bs-theme="light">
 
@@ -53,72 +52,79 @@
             {
                 DName: "Leche Flan",
                 Origin: "Philippines",
+                Image: "Assets/img/lecheflan.jpg",
                 Description: "A creamy caramel custard dessert.",
                 Ingredients: [
-                    { name: "Egg Yolks", amount: "10 pieces" },
-                    { name: "Condensed Milk", amount: "1 can" },
-                    { name: "Evaporated Milk", amount: "1 can" },
-                    { name: "Sugar", amount: "1 cup" }
+                    {name: "Egg Yolks", amount: "10 pieces"},
+                    {name: "Condensed Milk", amount: "1 can"},
+                    {name: "Evaporated Milk", amount: "1 can"},
+                    {name: "Sugar", amount: "1 cup"}
                 ]
             },
             {
                 DName: "Mango Float",
                 Origin: "Philippines",
+                Image: "Assets/img/mangofloat.jpg",
                 Description: "A chilled dessert made with mangoes and cream.",
                 Ingredients: [
-                    { name: "Ripe Mangoes", amount: "3 pieces" },
-                    { name: "Graham Crackers", amount: "1 pack" },
-                    { name: "All-Purpose Cream", amount: "2 packs" },
-                    { name: "Condensed Milk", amount: "1 can" }
+                    {name: "Ripe Mangoes", amount: "3 pieces"},
+                    {name: "Graham Crackers", amount: "1 pack"},
+                    {name: "All-Purpose Cream", amount: "2 packs"},
+                    {name: "Condensed Milk", amount: "1 can"}
                 ]
             },
             {
                 DName: "Chocolate Cake",
                 Origin: "United States",
+                Image: "Assets/img/chocolatecake.jpg",
                 Description: "A soft and moist chocolate-flavored cake.",
                 Ingredients: [
-                    { name: "Flour", amount: "2 cups" },
-                    { name: "Cocoa Powder", amount: "3/4 cup" },
-                    { name: "Sugar", amount: "2 cups" },
-                    { name: "Eggs", amount: "2 pieces" },
-                    { name: "Milk", amount: "1 cup" }
+                    {name: "Flour", amount: "2 cups"},
+                    {name: "Cocoa Powder", amount: "3/4 cup"},
+                    {name: "Sugar", amount: "2 cups"},
+                    {name: "Eggs", amount: "2 pieces"},
+                    {name: "Milk", amount: "1 cup"}
                 ]
             },
             {
                 DName: "Tiramisu",
                 Origin: "Italy",
+                Image: "Assets/img/tiramisu.jpg",
                 Description: "A layered coffee-flavored Italian dessert.",
                 Ingredients: [
-                    { name: "Ladyfingers", amount: "200 grams" },
-                    { name: "Mascarpone", amount: "250 grams" },
-                    { name: "Coffee", amount: "1 cup" },
-                    { name: "Cocoa Powder", amount: "2 tbsp" }
+                    {name: "Ladyfingers", amount: "200 grams"},
+                    {name: "Mascarpone", amount: "250 grams"},
+                    {name: "Coffee", amount: "1 cup"},
+                    {name: "Cocoa Powder", amount: "2 tbsp"}
                 ]
             },
             {
                 DName: "Buko Pandan",
                 Origin: "Philippines",
+                Image: "Assets/img/bukopandan.jpg",
                 Description: "A creamy coconut and pandan dessert.",
                 Ingredients: [
-                    { name: "Young Coconut", amount: "2 cups" },
-                    { name: "Pandan Jelly", amount: "2 cups" },
-                    { name: "All-Purpose Cream", amount: "1 pack" },
-                    { name: "Condensed Milk", amount: "1 can" }
+                    {name: "Young Coconut", amount: "2 cups"},
+                    {name: "Pandan Jelly", amount: "2 cups"},
+                    {name: "All-Purpose Cream", amount: "1 pack"},
+                    {name: "Condensed Milk", amount: "1 can"}
                 ]
             },
             {
                 DName: "Brownies",
                 Origin: "United States",
+                Image: "Assets/img/brownies.jpg",
                 Description: "Rich and fudgy chocolate squares.",
                 Ingredients: [
-                    { name: "Dark Chocolate", amount: "200 grams" },
-                    { name: "Butter", amount: "1/2 cup" },
-                    { name: "Sugar", amount: "1 cup" },
-                    { name: "Eggs", amount: "2 pieces" },
-                    { name: "Flour", amount: "3/4 cup" }
+                    {name: "Dark Chocolate", amount: "200 grams"},
+                    {name: "Butter", amount: "1/2 cup"},
+                    {name: "Sugar", amount: "1 cup"},
+                    {name: "Eggs", amount: "2 pieces"},
+                    {name: "Flour", amount: "3/4 cup"}
                 ]
             }
         ];
+
 
         var elParent = document.getElementById("parent");
 
@@ -127,7 +133,6 @@
             var ingredientList = "";
 
             for (var j = 0; j < desserts[i].Ingredients.length; j++) {
-
                 ingredientList +=
                     "<li>" +
                     desserts[i].Ingredients[j].name +
@@ -137,33 +142,39 @@
             }
 
             elParent.innerHTML += `
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card p-4 shadow rounded-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card shadow rounded-4 overflow-hidden h-100">
 
-                        <h3 class="card-title">
-                            ${desserts[i].DName}
-                        </h3>
+                <img
+                    src="${desserts[i].Image}"
+                    class="card-img-top"
+                    alt="${desserts[i].DName}"
+                    style="height: 220px; object-fit: cover;"
+                >
 
-                        <p class="text-muted">
-                            Origin: ${desserts[i].Origin}
-                        </p>
+                <div class="card-body p-4">
+                    <h3 class="card-title">
+                        ${desserts[i].DName}
+                    </h3>
 
-                        <p>
-                            ${desserts[i].Description}
-                        </p>
+                    <p class="text-muted">
+                        Origin: ${desserts[i].Origin}
+                    </p>
 
-                        <h5>Ingredients:</h5>
+                    <p>${desserts[i].Description}</p>
 
-                        <ul>
-                            ${ingredientList}
-                        </ul>
+                    <h5>Ingredients:</h5>
 
-                    </div>
+                    <ul>${ingredientList}</ul>
                 </div>
-            `;
+
+            </div>
+        </div>
+    `;
         }
 
     </script>
 
 </body>
+
 </html>
