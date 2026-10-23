@@ -2,45 +2,63 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
-    <title>Dessert Ingredients Recipe</title>
+    <title>The Dessert Recipe Book</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #fff5f7;
-        }
-
-        .card {
-            height: 100%;
-            border: none;
-        }
-
-        .card-title {
-            color: #d65a85;
-        }
-    </style>
 </head>
 
-<body>
+<body class="bg-warning-subtle">
 
-    <div class="container py-5">
+    <main class="container my-4 my-md-5">
+        <div class="bg-body border border-4 border-danger-subtle rounded-4 shadow-lg p-3 p-md-5">
 
-        <h1 class="text-center mb-2">
-            Dessert Recipe Collection
-        </h1>
+            <!-- Cover -->
+            <header class="text-center border border-3 border-warning rounded-3 py-5 px-3 mb-5 bg-warning-subtle">
+                <p class="fst-italic text-danger fs-5 mb-1">Sweet things, made at home</p>
+                <h1 class="display-4 fw-bold text-uppercase mb-3">The Dessert Recipe Book</h1>
+                <hr class="w-25 mx-auto border-danger border-2 opacity-75">
+                <p class="fst-italic text-body-secondary mb-0">
+                    Tap a dessert to see its ingredients and how to make it.
+                </p>
+            </header>
 
-        <p class="text-center mb-5">
-            Discover delicious desserts and their ingredients!
-        </p>
+            <!-- Gallery -->
+            <div class="row g-4" id="parent">
+                <!-- Dessert cards appear here -->
+            </div>
 
-        <div class="row g-4" id="parent">
-            <!-- Dessert cards will appear here -->
+            <footer class="text-center fst-italic text-body-secondary border-top pt-4 mt-5">
+                Enjoy! Share it with someone you love ♥
+            </footer>
+
         </div>
+    </main>
 
+    <!-- Recipe modal (one modal, filled in when a card is clicked) -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content bg-body border-4 border-danger-subtle rounded-4">
+
+                <div class="modal-header border-bottom-0 pb-0">
+                    <div>
+                        <p class="text-danger fst-italic mb-0" id="recipeModalNumber"></p>
+                        <h2 class="modal-title display-6 fw-bold" id="recipeModalTitle"></h2>
+                    </div>
+                    <button type="button" class="btn-close align-self-start" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body" id="recipeModalBody"></div>
+
+                <div class="modal-footer border-top-0">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Back to gallery</button>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap JS -->
@@ -54,11 +72,19 @@
                 Origin: "Philippines",
                 Image: "Assets/img/lecheflan.jpg",
                 Description: "A creamy caramel custard dessert.",
+                Time: "1 hr 15 min",
+                Serves: "8",
                 Ingredients: [
                     {name: "Egg Yolks", amount: "10 pieces"},
                     {name: "Condensed Milk", amount: "1 can"},
                     {name: "Evaporated Milk", amount: "1 can"},
                     {name: "Sugar", amount: "1 cup"}
+                ],
+                Steps: [
+                    "Melt the sugar in a pan until golden, then pour it into the mold.",
+                    "Whisk the egg yolks with the condensed and evaporated milk.",
+                    "Strain the mixture into the mold and cover tightly with foil.",
+                    "Steam for 40 to 45 minutes, then cool and chill before unmolding."
                 ]
             },
             {
@@ -66,11 +92,19 @@
                 Origin: "Philippines",
                 Image: "Assets/img/mangofloat.jpg",
                 Description: "A chilled dessert made with mangoes and cream.",
+                Time: "20 min + 6 hr chill",
+                Serves: "9",
                 Ingredients: [
                     {name: "Ripe Mangoes", amount: "3 pieces"},
                     {name: "Graham Crackers", amount: "1 pack"},
                     {name: "All-Purpose Cream", amount: "2 packs"},
                     {name: "Condensed Milk", amount: "1 can"}
+                ],
+                Steps: [
+                    "Mix the cream and condensed milk until smooth.",
+                    "Line a dish with graham crackers, then spread a layer of cream and sliced mango.",
+                    "Repeat the layers, finishing with cream and mango on top.",
+                    "Chill for at least 6 hours before serving."
                 ]
             },
             {
@@ -78,12 +112,20 @@
                 Origin: "United States",
                 Image: "Assets/img/chocolatecake.jpg",
                 Description: "A soft and moist chocolate-flavored cake.",
+                Time: "50 min",
+                Serves: "10",
                 Ingredients: [
                     {name: "Flour", amount: "2 cups"},
                     {name: "Cocoa Powder", amount: "3/4 cup"},
                     {name: "Sugar", amount: "2 cups"},
                     {name: "Eggs", amount: "2 pieces"},
                     {name: "Milk", amount: "1 cup"}
+                ],
+                Steps: [
+                    "Preheat the oven to 175°C and grease a round pan.",
+                    "Whisk the flour, cocoa powder and sugar together.",
+                    "Beat in the eggs and milk until the batter is smooth.",
+                    "Bake for 30 to 35 minutes, until a toothpick comes out clean."
                 ]
             },
             {
@@ -91,11 +133,19 @@
                 Origin: "Italy",
                 Image: "Assets/img/tiramisu.jpg",
                 Description: "A layered coffee-flavored Italian dessert.",
+                Time: "30 min + 4 hr chill",
+                Serves: "8",
                 Ingredients: [
                     {name: "Ladyfingers", amount: "200 grams"},
                     {name: "Mascarpone", amount: "250 grams"},
                     {name: "Coffee", amount: "1 cup"},
                     {name: "Cocoa Powder", amount: "2 tbsp"}
+                ],
+                Steps: [
+                    "Briefly dip each ladyfinger in the coffee and line a dish.",
+                    "Spread a layer of mascarpone over the ladyfingers.",
+                    "Repeat the layers, then dust the top with cocoa powder.",
+                    "Chill for at least 4 hours before slicing."
                 ]
             },
             {
@@ -103,11 +153,18 @@
                 Origin: "Philippines",
                 Image: "Assets/img/bukopandan.jpg",
                 Description: "A creamy coconut and pandan dessert.",
+                Time: "15 min + 2 hr chill",
+                Serves: "6",
                 Ingredients: [
                     {name: "Young Coconut", amount: "2 cups"},
                     {name: "Pandan Jelly", amount: "2 cups"},
                     {name: "All-Purpose Cream", amount: "1 pack"},
                     {name: "Condensed Milk", amount: "1 can"}
+                ],
+                Steps: [
+                    "Mix the cream and condensed milk in a large bowl.",
+                    "Fold in the young coconut strips and cubed pandan jelly.",
+                    "Chill for 2 hours and serve cold."
                 ]
             },
             {
@@ -115,63 +172,108 @@
                 Origin: "United States",
                 Image: "Assets/img/brownies.jpg",
                 Description: "Rich and fudgy chocolate squares.",
+                Time: "40 min",
+                Serves: "12",
                 Ingredients: [
                     {name: "Dark Chocolate", amount: "200 grams"},
                     {name: "Butter", amount: "1/2 cup"},
                     {name: "Sugar", amount: "1 cup"},
                     {name: "Eggs", amount: "2 pieces"},
                     {name: "Flour", amount: "3/4 cup"}
+                ],
+                Steps: [
+                    "Melt the chocolate and butter together, then let cool slightly.",
+                    "Stir in the sugar, then the eggs one at a time.",
+                    "Fold in the flour and pour into a lined pan.",
+                    "Bake at 175°C for about 25 minutes. Cool before cutting."
                 ]
             }
         ];
 
-
         var elParent = document.getElementById("parent");
 
-        for (var i = 0; i < desserts.length; i++) {
+        // Each Card opens into modal for full recipe
+        elParent.innerHTML = desserts.map(function (d, i) {
+            return `
+            <div class="col-12 col-md-6 col-lg-4">
+                <button type="button"
+                        class="card h-100 w-100 p-0 text-start shadow border-0 rounded-4 overflow-hidden"
+                        data-bs-toggle="modal"
+                        data-bs-target="#recipeModal"
+                        data-index="${i}">
 
-            var ingredientList = "";
+                    <div class="ratio ratio-4x3 bg-light">
+                        <img src="${d.Image}" alt="${d.DName}" class="object-fit-cover">
+                    </div>
 
-            for (var j = 0; j < desserts[i].Ingredients.length; j++) {
-                ingredientList +=
-                    "<li>" +
-                    desserts[i].Ingredients[j].name +
-                    " - " +
-                    desserts[i].Ingredients[j].amount +
-                    "</li>";
-            }
+                    <div class="card-body p-4">
+                        <p class="text-danger fst-italic small mb-1">Recipe No. ${i + 1}</p>
+                        <h3 class="card-title h4 fw-bold">${d.DName}</h3>
+                        <span class="badge rounded-pill text-bg-danger text-uppercase mb-2">${d.Origin}</span>
+                        <p class="card-text fst-italic text-body-secondary mb-0">${d.Description}</p>
+                    </div>
 
-            elParent.innerHTML += `
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card shadow rounded-4 overflow-hidden h-100">
+                    <div class="card-footer bg-warning-subtle text-center text-danger fw-semibold">
+                        View recipe
+                    </div>
 
-                <img
-                    src="${desserts[i].Image}"
-                    class="card-img-top"
-                    alt="${desserts[i].DName}"
-                    style="height: 220px; object-fit: cover;"
-                >
+                </button>
+            </div>`;
+        }).join("");
 
-                <div class="card-body p-4">
-                    <h3 class="card-title">
-                        ${desserts[i].DName}
-                    </h3>
+        var elModal = document.getElementById("recipeModal");
 
-                    <p class="text-muted">
-                        Origin: ${desserts[i].Origin}
-                    </p>
+        elModal.addEventListener("show.bs.modal", function (event) {
 
-                    <p>${desserts[i].Description}</p>
+            var index = event.relatedTarget.getAttribute("data-index");
+            var d = desserts[index];
 
-                    <h5>Ingredients:</h5>
+            var ingredientList = d.Ingredients.map(function (ing) {
+                return `
+                    <li class="list-group-item d-flex justify-content-between bg-transparent">
+                        <span>${ing.name}</span>
+                        <span class="fst-italic text-body-secondary">${ing.amount}</span>
+                    </li>`;
+            }).join("");
 
-                    <ul>${ingredientList}</ul>
+            var stepList = d.Steps.map(function (s) {
+                return `<li class="mb-2">${s}</li>`;
+            }).join("");
+
+            document.getElementById("recipeModalNumber").textContent = "Recipe No. " + (Number(index) + 1);
+            document.getElementById("recipeModalTitle").textContent = d.DName;
+
+            document.getElementById("recipeModalBody").innerHTML = `
+                <div class="ratio ratio-16x9 bg-light border border-5 border-white shadow rounded-2 overflow-hidden mb-3">
+                    <img src="${d.Image}" alt="${d.DName}" class="object-fit-cover">
                 </div>
 
-            </div>
-        </div>
-    `;
-        }
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                    <span class="badge rounded-pill text-bg-danger text-uppercase">${d.Origin}</span>
+                    <span class="badge text-bg-warning">Time: ${d.Time}</span>
+                    <span class="badge text-bg-warning">Serves: ${d.Serves}</span>
+                </div>
+
+                <p class="fst-italic fs-5 text-body-secondary">${d.Description}</p>
+
+                <div class="row g-4">
+
+                    <div class="col-12 col-md-5">
+                        <div class="card border-warning border-2 bg-warning-subtle h-100">
+                            <div class="card-body">
+                                <h3 class="h5 text-danger text-uppercase">Ingredients</h3>
+                                <ul class="list-group list-group-flush">${ingredientList}</ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-7">
+                        <h3 class="h5 text-danger text-uppercase">Method</h3>
+                        <ol class="ps-3">${stepList}</ol>
+                    </div>
+
+                </div>`;
+        });
 
     </script>
 
